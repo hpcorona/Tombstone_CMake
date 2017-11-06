@@ -4,9 +4,6 @@ project(The31st)
 set(CMAKE_CXX_STANDARD 11)
 
 get_filename_component(GameCode ${TOMBSTONE_PATH}/GameCode ABSOLUTE)
-get_filename_component(PluginCode ${TOMBSTONE_PATH}/PluginCode ABSOLUTE)
-
-include_directories(${PluginCode})
 
 add_library(The31st SHARED
         ${GameCode}/TFAxe.cpp
@@ -73,6 +70,6 @@ add_library(The31st SHARED
         ${GameCode}/TFWitch.cpp
         ${GameCode}/TFZombie.cpp)
 target_include_directories(The31st PUBLIC ${GameCode})
-target_link_libraries(The31st LINK_PUBLIC Engine)
+target_link_libraries(The31st LINK_PUBLIC Tombstone)
 DeployGame(The31st $<TARGET_FILE:The31st>)
 SetCompileOptions()
